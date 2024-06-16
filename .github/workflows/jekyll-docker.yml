@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODS No 7: Energía asequible y no contaminante</title>
+    <link rel="icon" href="ODSEVEN.ico">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f2f4f6; /* Fondo principal */
+            color: #333; /* Color de texto principal */
+        }
+
+        /* Estilos para la barra de navegación */
+        .navbar {
+            background-color: #2ecc71; /* Verde esmeralda */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: #fff; /* Texto blanco para los enlaces */
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border-radius: 10px;
+        }
+
+        .navbar a.active, .navbar a:hover {
+            background-color: #27ae60; /* Verde más oscuro */
+        }
+
+        /* Estilos para las secciones */
+        .content {
+            width: 100%;
+            max-width: 900px; /* Ancho máximo para limitar la extensión */
+        }
+
+        .section {
+            background-color: #fff; /* Fondo de las secciones */
+            margin: 20px 0;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #2ecc71; /* Verde esmeralda para títulos */
+        }
+
+        .section p {
+            line-height: 1.6;
+        }
+
+        /* Estilos para los formularios */
+        form {
+            max-width: 100%;
+            padding: 20px;
+            background-color: #f9f9f9; /* Fondo del formulario */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            background-color: #2ecc71; /* Verde esmeralda */
+            color: #fff; /* Texto blanco para el botón */
+            border: none;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #27ae60; /* Verde más oscuro */
+        }
+
+        /* Estilos para el usuario registrado */
+        .user-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="tablink" onclick="openSection(event, 'section1')" id="defaultOpen">Introducción</a>
+        <a href="#" class="tablink" onclick="openSection(event, 'section2')">Importancia</a>
+        <a href="#" class="tablink" onclick="openSection(event, 'section3')">Objetivos</a>
+        <a href="#" class="tablink" onclick="openSection(event, 'section4')">Registro</a>
+        <a href="#" class="tablink" onclick="openSection(event, 'section5')">Sugerencias</a>
+        <div class="user-info" id="userInfo"></div>
+    </div>
+
+    <div class="content">
+        <div id="section1" class="section">
+            <h2>Introducción</h2>
+            <p>El Objetivo de Desarrollo Sostenible 7 busca garantizar el acceso a una energía asequible, segura, sostenible y moderna para todos.</p>
+            <h3>Selección del Problema</h3>
+            <p>La sobreexplotación de recursos de energía de combustibles fósiles.</p>
+        </div>
+        <div id="section2" class="section">
+            <h2>Importancia</h2>
+            <p>La energía es crucial para casi todos los grandes desafíos y oportunidades a los que se enfrenta el mundo hoy en día.</p>
+        </div>
+        <div id="section3" class="section">
+            <h2>Objetivos</h2>
+            <p>1. Asegurar el acceso universal a servicios energéticos asequibles, confiables y modernos.</p>
+            <p>2. Aumentar considerablemente el porcentaje de energía renovable en el mix energético mundial.</p>
+        </div>
+        <div id="section4" class="section">
+            <h2>Registro</h2>
+            <form id="registrationForm">
+                <label for="fname">Nombre:</label>
+                <input type="text" id="fname" name="fname" required><br>
+                <label for="lname">Apellido:</label>
+                <input type="text" id="lname" name="lname" required><br>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required><br>
+                <input type="submit" value="Registrarse">
+            </form>
+        </div>
+        <div id="section5" class="section">
+            <h2>Sugerencias</h2>
+            <form id="suggestionForm">
+                <label for="suggestion">Tu Sugerencia:</label><br>
+                <textarea id="suggestion" name="suggestion" rows="4" required></textarea><br>
+                <input type="submit" value="Enviar Sugerencia">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openSection(evt, sectionName) {
+            var i, sections, tablinks;
+
+            sections = document.getElementsByClassName("section");
+            for (i = 0; i < sections.length; i++) {
+                sections[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            document.getElementById(sectionName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        document.getElementById("defaultOpen").click();
+
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var fname = document.getElementById('fname').value;
+            var lname = document.getElementById('lname').value;
+            var email = document.getElementById('email').value;
+
+            if (fname === "" || lname === "" || email === "") {
+                alert("Por favor, complete todos los campos.");
+            } else {
+                alert(fname + ", te has registrado exitosamente.");
+                document.getElementById('userInfo').innerText = "Usuario: " + fname + " " + lname;
+                document.getElementById('registrationForm').reset();
+            }
+        });
+
+        document.getElementById('suggestionForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var suggestion = document.getElementById('suggestion').value;
+            var userInfo = document.getElementById('userInfo').innerText;
+
+            if (userInfo === "") {
+                alert("Primero tienes que registrarte para mandarnos una sugerencia.");
+            } else if (suggestion === "") {
+                alert("Por favor, escribe una sugerencia.");
+            } else {
+                var userName = userInfo.replace("Usuario: ", "").split(" ")[0];
+                alert("Gracias por la sugerencia, " + userName + ".");
+                document.getElementById('suggestionForm').reset();
+            }
+        });
+    </script>
+</body>
+</html>
